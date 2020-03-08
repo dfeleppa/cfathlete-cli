@@ -7,23 +7,25 @@ class CfathleteCLI::CLI
     def start
         puts "Welcome to the CrossFit Athlete CLI!",
         "This CLI parses data from the 2018 Crossfit Open Leaderboard.",
-        "",
-        "Please enter ATHLETE, AFFILIATE, or REGION to begin your search:"
-         #search_type
+        "*Loading data from 2018 CF Leadboard...",
+        ""
+        search_type
     end
 
-#    def search_type
-#         input == gets.strip.downcase
-#         if input == "athlete"
-#             "Please enter the athlete that you would like to search for (First Last):"
-#         elsif input == "affiliate"
-#             "Please enter the affiliate that you would like to search for:"
-#         elsif input == "region"
-#             "Please enter the affiliate that you would like to search for"
-#         else
-#             "You must type ATHLETE, AFFILIATE, or REGION to begin your search."
-#         end
-#     end
+   def search_type
+        puts "========== CF Athlete Search ==========",
+        "Please enter ATHLETE, AFFILIATE, or REGION to begin your search:"
+        input = gets.strip.downcase
+        if input == "athlete"
+            puts "Please enter the athlete that you would like to search for (First Last):"
+        elsif input == "affiliate"
+            puts "Please enter the affiliate that you would like to search for:"
+        elsif input == "region"
+            puts "Please enter the affiliate that you would like to search for"
+        else
+            puts "You must type ATHLETE, AFFILIATE, or REGION to begin your search."
+        end
+    end
     
     #deals with inputs
     #while inpute =/= exit, do ...
