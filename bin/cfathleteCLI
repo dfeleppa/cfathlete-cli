@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "cfathleteCLI"
 
-CfathleteCli::CLI.new.start
+CfathleteCLI::CLI.new.start
