@@ -9,7 +9,7 @@ class CfathleteCLI::CLI
         "This CLI parses data from the 2018 Crossfit Open Leaderboard.",
         "",
         "Please enter ATHLETE, AFFILIATE, or REGION to begin your search:"
-        #search_type
+         #search_type
     end
 
 #    def search_type
