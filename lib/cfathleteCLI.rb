@@ -1,5 +1,6 @@
 require "cfathleteCLI/version"
 require "cfathleteCLI/cli"
+require "cfathleteCLI/api"
 
 #dependencies
 require "pry"

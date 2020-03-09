@@ -5,6 +5,10 @@ class CfathleteCLI::CLI
     #create new custom objs
     #all inside start method
     def start
+        puts "test"
+    end
+
+    def start_x
         puts "Welcome to the CrossFit Athlete CLI!",
         "This CLI parses data from the 2018 Crossfit Open Leaderboard.",
         "*Loading data from 2018 CF Open Leaderboard...",
