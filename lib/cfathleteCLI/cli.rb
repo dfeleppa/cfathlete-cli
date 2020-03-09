@@ -188,6 +188,7 @@ class CfathleteCLI::CLI
             "3. Athlete_three"
             exit
         else
+            puts "*Error: incorrect format"
             open_leaderboard(num)    
         end
     end
@@ -215,9 +216,4 @@ class String
     def titleize
       self.split(/ |\_/).map(&:capitalize).join(" ")
     end
-end
-
-class OpenWorkouts
-
-
 end
