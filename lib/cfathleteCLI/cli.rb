@@ -6,6 +6,7 @@ class CfathleteCLI::CLI
     #all inside start method
     def start
         puts "test"
+        @athlete = CfathleteCLI::API.get_athlete
     end
 
     def start_x
