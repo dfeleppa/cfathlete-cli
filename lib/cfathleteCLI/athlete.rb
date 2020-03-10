@@ -1,15 +1,15 @@
 class CfathleteCLI::Athlete
-    attr_reader :region, :affiliate, :age,
-                :height, :weight
-    attr_accessor :name, :first_name, :last_name
     @@all = []
+    attr_accessor   :rank, :name, :country, :affiliate_name, :gender, :age,
+                    :height, :weight, :score
 
-    def initialize(name)
-        @first_name = name.split(" ")[0]
-        @last_name = name.split(" ")[1]
+    def initialize(hash)
+        
+        hash.each {|key, value| self.send(("#{key}"), value)}
     end
 
     def self.all
+        @@all
     end
 
     def self.first_name
