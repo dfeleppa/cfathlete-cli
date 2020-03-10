@@ -10,13 +10,15 @@ class CfathleteCLI::CLI
     
     def search_type
         puts "====== 2019 Crossfit Games Open Leadboard Search ======",
-        "Please enter ATHLETE or RANK to begin your search:"
-        input = gets.strip.downcase
-        if input == "athlete" || input == "rank"
+        "Please select the type of search you would like to begin:",
+        "1. Athlete",
+        "2. Rank",
+        "3. View All Athletes By Rank"
+        input = Integer(gets) rescue false
+        if input == 1 || 2 || 3
             search_gender(input)
-        else
-            puts "*Error: Please use one of the following commands to declare your search:",
-            "*Error: ATHLETE or RANK ..."
+        else       
+            puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
         end
     end
@@ -26,7 +28,7 @@ class CfathleteCLI::CLI
         "Would you like to search the male or female leaderboard?",
         "   Please enter 'M' or 'F':"
         input = gets.strip.downcase
-        if type == "athlete"
+        if type == 1
             if input == "m"
                 athlete_search("male")
             elsif input == "f"
@@ -35,11 +37,20 @@ class CfathleteCLI::CLI
                 puts "*Error: incorrect format"
                 search_gender  
             end
-        elsif type == "rank"
+        elsif type == 2
             if input == "m"
                 rank_search("male")
             elsif input == "f"
                 rank_search("female")
+            else
+                puts "*Error: incorrect format"
+                search_gender(type)  
+            end
+        elsif type == 3
+            if input == "m"
+                @data = CfathleteCLI::API.view_all_by_rank(1)
+            elsif input == "f"
+                @data = CfathleteCLI::API.view_all_by_rank(2)
             else
                 puts "*Error: incorrect format"
                 search_gender(type)  
@@ -85,7 +96,7 @@ class CfathleteCLI::CLI
         if input && input > 0
             puts "Searching 2019 Leaderboard for the Rank #{input} #{gender.capitalize} Athlete...",
             ""
-            @data = CfathleteCLI::API.get_athlete_by_rank(gen,input.to_i-1)
+            @data = CfathleteCLI::API.get_athlete_by_rank(gen,input.to_i)
         else       
             puts "*Error: Please provide the # of the rank that you would like to search for"
             rank_search(gender)
