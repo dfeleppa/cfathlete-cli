@@ -1,10 +1,5 @@
 class CfathleteCLI::CLI
     
-    # def startx
-    #     puts "test"
-    #     @data = CfathleteCLI::API.get_athlete("male",1)
-    # end
-
     def start
         puts "Welcome to the CrossFit Athlete CLI!",
         "This CLI parses data from the 2019 CrossFit Open Leaderboard.",
@@ -56,14 +51,21 @@ class CfathleteCLI::CLI
     end
 
     def athlete_search(gender)
-        "Please enter the athlete that you would like to search for (First Last):"
+        if gender == "male"
+            gen = "1"
+        else
+            gen = "2"
+        end
+
+        puts "====== 2019 CrossFit Games #{gender.capitalize} Leaderboard Search ======",
+        "Please enter the athlete that you would like to search for 'First Last':"
         input = gets.strip.downcase
         if input.match(/\A[[:alpha:][:blank:]]+\z/) == nil
             puts "*Error: Please provide your search in 'First Last' format."
-            athlete_search
+            athlete_search(gender)
         else
-            puts "Searching 2018 Leaderboard for #{input.titleize}'s' data..."
-            athlete_information(input)
+            puts "Searching 2019 Leaderboard for #{input.titleize}'s' data..."
+            @data = CfathleteCLI::API.get_athlete_by_name(gen,input)
         end
     end
 
@@ -85,7 +87,7 @@ class CfathleteCLI::CLI
             ""
             @data = CfathleteCLI::API.get_athlete_by_rank(gen,input.to_i-1)
         else       
-            puts "*Error: Please the # of the rank that you would like to search for"
+            puts "*Error: Please provide the # of the rank that you would like to search for"
             rank_search(gender)
         end
     end
