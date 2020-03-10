@@ -102,7 +102,6 @@ class CfathleteCLI::API
                 x += 99
             end
         end
-            
-    
+        
     end
 end

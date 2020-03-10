@@ -2,19 +2,20 @@ class CfathleteCLI::CLI
     
     def start
         puts "Welcome to the CrossFit Athlete CLI!",
-        "This CLI parses data from the 2019 CrossFit Open Leaderboard.",
+        "This CLI parses data from the 2019 CrossFit Leaderboard.",
         "*Loading data from 2019 CrossFit Games Leaderboard...",
         ""
         search_type
     end
     
     def search_type
-        puts "====== 2019 Crossfit Games Open Leadboard Search ======",
+        puts "====== 2019 Crossfit Games Leadboard Search ======",
         "Please select the type of search you would like to begin:",
         "1. Athlete",
         "2. Rank",
         "3. View All Athletes By Rank"
         input = Integer(gets) rescue false
+        
         if input == false
             puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
@@ -24,8 +25,9 @@ class CfathleteCLI::CLI
             puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
         end
+        
     end
-
+        
     def search_gender(type)
         puts "======== 2019 Crossfit Games Athlete Search ========",
         "Would you like to search the male or female leaderboard?",
@@ -83,10 +85,6 @@ class CfathleteCLI::CLI
         end
     end
 
-    def athlete_information(gender)
-       
-    end
-
     def rank_search(gender)
         if gender == "male"
             gen = "1"
@@ -118,8 +116,7 @@ class CfathleteCLI::CLI
             puts "Please type 'y' or 'n'."
             exit
         end
-    end
-       
+    end     
 end 
 
 class String  
