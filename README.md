@@ -1,8 +1,6 @@
 # CfathleteCLI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/cfathleteCLI`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem enables users to parse the 2019 CrossFit Games leaderboard.  Users can search for Crossfit Games athletes by name or rank(placing), as well as view the athletes listed by rank.
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+In order to run the application, type "bin/cfathleteCLI" in your console.  You will then be prompted for the type of search that you would like to begin and subsequently guided through your search.
 
 ## Development
 

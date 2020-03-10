@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dfeleppa@gmail.com"]
 
   spec.summary       = "Ruby CLI Application"
-  spec.description   = "Use API data to parse through data from 2018 Crossfit Games"
+  spec.description   = "Use API data to parse through data from 2019 Crossfit Games"
   spec.homepage      = "https://github.com/dfeleppa/cfathlete-cli"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
