@@ -21,7 +21,7 @@ class CfathleteCLI::Athlete
 
     def display_data
         puts "Athlete: #{@name}",
-        "Country: #{@country}}",
+        "Country: #{@country}",
         "Affiliate: #{@affiliate_name}",
         "Gender: #{@gender}",
         "Age: #{@age}",
