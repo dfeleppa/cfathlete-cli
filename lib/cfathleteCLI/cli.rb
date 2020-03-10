@@ -1,15 +1,11 @@
 class CfathleteCLI::CLI
     
-    #start should greet user and give description
-    #get data from api
-    #create new custom objs
-    #all inside start method
     def start
         puts "test"
-        @athlete = CfathleteCLI::API.get_athlete
+        @athlete = CfathleteCLI::API.get_athlete("male", 1)
     end
 
-    def start_x
+    def startx
         puts "Welcome to the CrossFit Athlete CLI!",
         "This CLI parses data from the 2018 Crossfit Open Leaderboard.",
         "*Loading data from 2018 CF Open Leaderboard...",
