@@ -15,7 +15,7 @@ class CfathleteCLI::CLI
         "2. Rank",
         "3. View All Athletes By Rank"
         input = Integer(gets) rescue false
-        if input == ""
+        if input == false
             puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
         elsif input == 1 || 2 || 3
