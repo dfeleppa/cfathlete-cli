@@ -1,6 +1,4 @@
-```ruby
-gem 'cfathleteCLI'
-```
+
 
 source "https://rubygems.org"
 

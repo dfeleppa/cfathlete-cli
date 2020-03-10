@@ -18,14 +18,14 @@ class CfathleteCLI::CLI
         if input == false
             puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
-        elsif input == 1 || 2 || 3
+        elsif input == 1 || input == 2 || input == 3
             search_gender(input)
         else       
             puts "*Error: Please select the type of search by entering a number(example: 1)"
             search_type
         end
     end
-    
+    binding.pry
     def search_gender(type)
         puts "======== 2019 Crossfit Games Athlete Search ========",
         "Would you like to search the male or female leaderboard?",
@@ -38,7 +38,7 @@ class CfathleteCLI::CLI
                athlete_search("female")
             else
                 puts "*Error: incorrect format"
-                search_gender  
+                search_gender(type)
             end
         elsif type == 2
             if input == "m"
@@ -63,7 +63,7 @@ class CfathleteCLI::CLI
             exit
         end
     end
-
+    
     def athlete_search(gender)
         if gender == "male"
             gen = "1"

@@ -1,5 +1,5 @@
 class CfathleteCLI::API
-
+    
     def self.get_athlete_by_rank(gen,num)
         url = "https://games.crossfit.com/competitions/api/v1/competitions/games/2019/leaderboards?division=#{gen}&region=0&scaled=0&sort=0&occupation=0&page=1"
         @athletes_hash = HTTParty.get(url)["leaderboardRows"]        
