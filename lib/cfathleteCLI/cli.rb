@@ -25,7 +25,7 @@ class CfathleteCLI::CLI
             search_type
         end
     end
-    binding.pry
+
     def search_gender(type)
         puts "======== 2019 Crossfit Games Athlete Search ========",
         "Would you like to search the male or female leaderboard?",
