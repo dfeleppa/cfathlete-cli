@@ -1,12 +1,19 @@
 class CfathleteCLI::API
     
-    def self.get_athlete_by_rank(gen,num)
+    def self.parse(gen)
         url = "https://games.crossfit.com/competitions/api/v1/competitions/games/2019/leaderboards?division=#{gen}&region=0&scaled=0&sort=0&occupation=0&page=1"
         @athletes_hash = HTTParty.get(url)["leaderboardRows"]        
         @parsed_entrant = @athletes_hash.collect { |e| e["entrant"] }
         @parsed_score = @athletes_hash.collect { |e| e["overallScore"] }
         @parsed_rank = @athletes_hash.collect { |e| e["overallRank"] }
-        
+    end
+
+    def self.get_athlete_by_rank(gen,num)
+        self.parse(gen)
+        self.rank_get(@athletes_hash, num)
+    end
+    
+    def self.rank_get(athletes_hash, num)
         @rank_search = @athletes_hash.each do |e| 
             if e["overallRank"].to_i == num 
                 @rank_searched = e["overallRank"]
@@ -20,13 +27,14 @@ class CfathleteCLI::API
                 self.create_athlete(@entrant_match)
             end
     end
+    
+   
     def self.get_athlete_by_name(gen,name)
-        url = "https://games.crossfit.com/competitions/api/v1/competitions/games/2019/leaderboards?division=#{gen}&region=0&scaled=0&sort=0&occupation=0&page=1"
-        @athletes_hash = HTTParty.get(url)["leaderboardRows"]        
-        @parsed_entrant = @athletes_hash.collect { |e| e["entrant"] }
-        @parsed_score = @athletes_hash.collect { |e| e["overallScore"] }
-        @parsed_rank = @athletes_hash.collect { |e| e["overallRank"] }
-        
+        self.parse(gen)
+        self.name_get(@athletes_hash, name)
+    end
+
+    def self.name_get(athletes_hash, name)    
         @name_search = @athletes_hash.each do |e| 
             if e["entrant"]["competitorName"].strip.downcase == name
                 @name_searched = e["entrant"]["competitorName"]
@@ -41,7 +49,7 @@ class CfathleteCLI::API
             self.create_athlete(@entrant_match)
         end
     end
-    
+
     def self.create_athlete(entrant_match)
         athlete_obj = {
             rank: entrant_match["overallRank"],
