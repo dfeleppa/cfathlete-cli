@@ -9,6 +9,9 @@ class CfathleteCLI::CLI
     end
     
     def search_type
+        
+        
+
         puts "====== 2019 Crossfit Games Leadboard Search ======",
         "Please select the type of search you would like to begin:",
         "1. Athlete",
@@ -105,6 +108,7 @@ class CfathleteCLI::CLI
     end
 
     def exit
+        
         puts "",
         "Would you like to start a new search (Y/N)"
         input = gets.strip.downcase

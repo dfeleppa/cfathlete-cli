@@ -14,6 +14,7 @@ class CfathleteCLI::API
     end
     
     def self.rank_get(athletes_hash, num)
+        
         @rank_search = @athletes_hash.each do |e| 
             if e["overallRank"].to_i == num 
                 @rank_searched = e["overallRank"]
@@ -62,6 +63,8 @@ class CfathleteCLI::API
             weight: entrant_match["entrant"]["weight"],
             score: entrant_match["overallScore"]
             }
+            @rank_searched = nil
+            @name_searched = nil
             CfathleteCLI::Athlete.new(athlete_obj) 
     end
 
